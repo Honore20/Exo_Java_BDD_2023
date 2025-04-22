@@ -11,47 +11,26 @@
     <input type="submit" value="Afficher">
 </form>
 
-<%-- Récupération de la valeur saisie par l'utilisateur --%>
 <% String valeur = request.getParameter("valeur"); %>
     
 <%-- Vérification de l'existence de la valeur --%>
 <% if (valeur != null && !valeur.isEmpty()) { %>
 
 <%-- Boucle for pour afficher une ligne d'étoiles --%>
-    <%int cpt = Integer.parseInt(valeur); %>
+    <% int cpt = Integer.parseInt(valeur); %>
     <p>
-    <% for (int i = 1; i <= cpt; i++) { %>
-       <%= "*" %>
+    <% for (int i = 0; i < cpt; i++) { %>
+        <% for (int j = 0; j < cpt; j++) { %>
+            <%= "*" %>
+        <% } %>
+        <br>
     <% } %>
     </p>
+
   <h2>Exercice 1 : Le carré d'étoiles</h2>
   <p>Écrire le code afin de produire un carré d'étoiles</p>
   <p>Exemple : si l'utilisateur saisit la valeur 5</p>
 
-  <label for="taille">Entrez un nombre :</label>
-  <input type="number" id="taille" min="1" />
-  <button onclick="genererCarre()">Afficher le carré</button>
-
-  <pre id="resultat"></pre>
-
-  <script>
-    function genererCarre() {
-      const taille = parseInt(document.getElementById("taille").value);
-      const resultat = document.getElementById("resultat");
-      let sortie = "";
-
-      if (isNaN(taille) || taille < 1) {
-        resultat.textContent = "Veuillez entrer un nombre valide supérieur à 0.";
-        return;
-      }
-
-      for (let i = 0; i < taille; i++) {
-        sortie += "*".repeat(taille) + "\n";
-      }
-
-      resultat.textContent = sortie;
-    }
-  </script>
 
 <h2>Exercice 2 : Triangle rectangle gauche</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
