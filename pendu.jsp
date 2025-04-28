@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.Random"%>
 <%@page import="java.util.Scanner"%>
+<%@page import="java.util.Arrays"%>
 
 <html>
 <head>
