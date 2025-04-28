@@ -113,12 +113,10 @@ xueivulp ares revih'l</p>
 <p>Nombre de voyelles : <%= countVoyelles %></p>
 <p>Nombre de consonnes : <%= countConsonnes %></p>
 
+<% } else { %>
+    <p>Veuillez saisir une chaîne de caractères avec au moins 6 caractères.</p>
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>
 </html>
 
-<% } %>
-<p><a href="index.html">Retour au sommaire</a></p>
-</body>
-</html>
