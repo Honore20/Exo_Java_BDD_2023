@@ -4,13 +4,6 @@
 
 <html>
 <head>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Iterator"%>
-
-<html>
-<head>
 <title>Mini Gestionnaire de Tâches</title>
 </head>
 <body bgcolor="white">
