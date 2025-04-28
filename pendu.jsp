@@ -82,8 +82,13 @@
     while (!jeu.estGagne() && !jeu.estPerdu()) {
         jeu.afficherEtat();
         System.out.print("Proposez une lettre : ");
-        char lettre = scanner.nextLine().toUpperCase().charAt(0);
-        jeu.proposerLettre(lettre);
+        if (scanner.hasNextLine()) {
+            char lettre = scanner.nextLine().toUpperCase().charAt(0);
+            jeu.proposerLettre(lettre);
+        } else {
+            System.out.println("Aucune ligne trouvée !");
+            break;
+        }
     }
 
     if (jeu.estGagne()) {
