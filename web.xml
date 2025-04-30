@@ -1,0 +1,9 @@
+<servlet>
+    <servlet-name>AsciiArtServlet</servlet-name>
+    <servlet-class>com.example.AsciiArtServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>AsciiArtServlet</servlet-name>
+    <url-pattern>/ascii</url-pattern>
+</servlet-mapping>
