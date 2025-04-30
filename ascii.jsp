@@ -1,34 +1,29 @@
-import java.util.Scanner;
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>ASCII Art</title>
+</head>
+<body bgcolor="white">
+<h1>Générateur ASCII Art</h1>
 
-class Solution {  // Codingame nécessite le nom 'Solution'
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        // Lecture des paramètres
-        int width = scanner.nextInt();    // L (largeur)
-        int height = scanner.nextInt();   // H (hauteur)
-        scanner.nextLine();               // Consomme le reste de la ligne
-        
-        // Lecture du texte à convertir
-        String text = scanner.nextLine().toUpperCase();
-        
-        // Lecture des lignes ASCII
-        String[] asciiArt = new String[height];
-        for (int i = 0; i < height; i++) {
-            asciiArt[i] = scanner.nextLine();
-        }
+<form method="post" action="ascii">
+    <p>Saisir un texte : <input type="text" name="chaine" />
+    <input type="submit" value="Générer">
+</form>
 
-        // Génération de l'art ASCII
-        for (int h = 0; h < height; h++) {
-            StringBuilder outputLine = new StringBuilder();
-            
-            for (char c : text.toCharArray()) {
-                int charIndex = (c >= 'A' && c <= 'Z') ? c - 'A' : 26;
-                int startPos = charIndex * width;
-                outputLine.append(asciiArt[h].substring(startPos, startPos + width));
-            }
-            
-            System.out.println(outputLine);
-        }
-    }
-}
+<%
+    String originalText = (String) request.getAttribute("originalText");
+    StringBuilder[] asciiLines = (StringBuilder[]) request.getAttribute("asciiResult");
+
+    if (asciiLines != null) {
+%>
+    <h2>Résultat pour : <%= originalText %></h2>
+    <pre>
+<% for (StringBuilder line : asciiLines) { %>
+<%= line.toString() %>
+<% } %>
+    </pre>
+<% } %>
+
+</body>
+</html>
