@@ -78,20 +78,14 @@
             final int L = 4;  // Largeur d'un caractère
             final int H = 5;  // Hauteur d'un caractère
             
-            // Définition des caractères ASCII Art pour A-Z, 0-9
+            // Définition des caractères ASCII Art pour A-Z et 0-9
             String[] rows = {
-                " #   ##   ## ##  ###  ##   ##  ###   ## ##  ###  #   ##    ##  ##   ##   ###  ",
-                "# #  # #  #    #   #  #  # #  #  #   #    #  #  #  # #    # # # #  #   #  #  ",
-                "###  # #  ##   ##   ##  ### ##  #  #   ##   ##   ###   #  #  ## # #  ##   ##  ",
-                "# #  # #  #    #   #   # #  #   #  #    #   #   # #  #  #  ## #   ##   #    #  ",
-                "# #  ##   ## ##  ###  ##   ##  ###   ## ##   ###   #   ##  #  #   #  #   #   #  ",
-                
-                // Chiffres (0-9)
-                "###  #  #  #  #  ###  ###  ###   #  #  ###  ###  ##   ##  ###  ##  ##   ##   ###   ###",
-                "#  # #  #  #  #  #   #   #    #   #  #  #   #  #   #    # #    #  # # #  #  #    #   #  #",
-                "###  ###  ##   #   ##  ##   ##   ##  #   ##  ##   ##   ##  #   #   ##  ##  # ##   ##   ## ",
-                "#  # #  #   #   #  #   #    # #  #  ##   ##  #   #  ##   #   ##   # #   ##    ##   #   ##",
-                "###  ##   ###   ##   ##  ##    ##  ###  ###  ###   #  ## ##    ##    ##    ###   ##    ##"
+                " #  ##   ## ##  ### ###  ## # # ###  ## # # #   # # ###  #  ##   #  ##   ## ### # # # # # # # # # # ### ### ",
+                "# # # # #   # # #   #   #   # #  #    # # # #   ### # # # # # # # # # # #    #  # # # # # # # # # #   #   # ",
+                "### ##  #   # # ##  ##  # # ###  #    # ##  #   ### # # # # ##  # # ##   #   #  # # # # ###  #   #   #   ## ",
+                "# # # # #   # # #   #   # # # #  #  # # # # #   # # # # # # #    ## # #   #  #  # # # # ### # #  #  #       ",
+                "# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  ",
+                "    #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  "
             };
 
             StringBuilder[] asciiLines = new StringBuilder[H];
@@ -106,9 +100,9 @@
                 if (c >= 'A' && c <= 'Z') {
                     index = c - 'A';  // Index pour les lettres A-Z
                 } else if (c >= '0' && c <= '9') {
-                    index = c - '0' + 26; // Index pour les chiffres 0-9 (après les lettres)
+                    index = c - '0' + 26; // Index pour les chiffres 0-9
                 } else {
-                    index = 36; // Pour les caractères non pris en charge (les espaces, ponctuation, etc.)
+                    index = 36; // Pour les caractères non pris en charge
                 }
 
                 for (int i = 0; i < H; i++) {
