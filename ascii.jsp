@@ -25,10 +25,12 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
         }
-        input1rem;
+        input {
+            padding: 1rem;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 1rem;
+            width: 100%;
         }
         button {
             background-color: #3498db;
@@ -76,6 +78,7 @@
             final int L = 4;  // Largeur d'un caractère
             final int H = 5;  // Hauteur d'un caractère
             
+            // Définition des caractères ASCII Art pour A-Z et 0-9
             String[] rows = {
                 " #  ##   ## ##  ### ###  ## # # ###  ## # # #   # # ###  #  ##   #  ##   ## ### # # # # # # # # # # ### ### ",
                 "# # # # #   # # #   #   #   # #  #    # # # #   ### # # # # # # # # # # #    #  # # # # # # # # # #   #   # ",
@@ -95,11 +98,11 @@
                 char c = input.charAt(j);
                 int index;
                 if (c >= 'A' && c <= 'Z') {
-                    index = c - 'A';
+                    index = c - 'A';  // Index pour les lettres A-Z
                 } else if (c >= '0' && c <= '9') {
-                    index = c - '0' + 26; // 26 pour les chiffres
+                    index = c - '0' + 26; // Index pour les chiffres 0-9
                 } else {
-                    index = 36; // 36 pour les caractères non alphabétiques
+                    index = 36; // Pour les caractères non pris en charge
                 }
 
                 for (int i = 0; i < H; i++) {
@@ -109,7 +112,7 @@
                         // Ajoute le caractère ASCII + un espace (sauf après le dernier caractère)
                         asciiLines[i].append(rows[i].substring(start, end));
                         if (j < input.length() - 1) {
-                           (" ");
+                            asciiLines[i].append(" "); // Ajoute un espace entre les caractères
                         }
                     }
                 }
