@@ -1,9 +1,11 @@
-<servlet>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="3.1">
+  <servlet>
     <servlet-name>AsciiArtServlet</servlet-name>
     <servlet-class>com.example.AsciiArtServlet</servlet-class>
-</servlet>
+  </servlet>
 
-<servlet-mapping>
+  <servlet-mapping>
     <servlet-name>AsciiArtServlet</servlet-name>
     <url-pattern>/ascii</url-pattern>
-</servlet-mapping>
+  </servlet-mapping>
+</web-app>
