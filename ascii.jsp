@@ -25,10 +25,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
         }
-        input[type="text"] {
-            width: 100%;
-            padding: 0.8rem;
-            margin-bottom: 1rem;
+        input1rem;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 1rem;
@@ -55,6 +52,7 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             line-height: 1.2;
             letter-spacing: 1px;
+            color: #e74c3c; /* Couleur du texte ASCII */
         }
     </style>
 </head>
@@ -83,7 +81,8 @@
                 "# # # # #   # # #   #   #   # #  #    # # # #   ### # # # # # # # # # # #    #  # # # # # # # # # #   #   # ",
                 "### ##  #   # # ##  ##  # # ###  #    # ##  #   ### # # # # ##  # # ##   #   #  # # # # ###  #   #   #   ## ",
                 "# # # # #   # # #   #   # # # #  #  # # # # #   # # # # # # #    ## # #   #  #  # # # # ### # #  #  #       ",
-                "# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  "
+                "# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  ",
+                "    #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  #  "
             };
 
             StringBuilder[] asciiLines = new StringBuilder[H];
@@ -94,7 +93,14 @@
             input = input.toUpperCase();
             for (int j = 0; j < input.length(); j++) {
                 char c = input.charAt(j);
-                int index = (c >= 'A' && c <= 'Z') ? c - 'A' : 26; // 26 pour les caractères non alphabétiques
+                int index;
+                if (c >= 'A' && c <= 'Z') {
+                    index = c - 'A';
+                } else if (c >= '0' && c <= '9') {
+                    index = c - '0' + 26; // 26 pour les chiffres
+                } else {
+                    index = 36; // 36 pour les caractères non alphabétiques
+                }
 
                 for (int i = 0; i < H; i++) {
                     int start = index * L;
@@ -103,7 +109,7 @@
                         // Ajoute le caractère ASCII + un espace (sauf après le dernier caractère)
                         asciiLines[i].append(rows[i].substring(start, end));
                         if (j < input.length() - 1) {
-                            asciiLines[i].append(" ");
+                           (" ");
                         }
                     }
                 }
