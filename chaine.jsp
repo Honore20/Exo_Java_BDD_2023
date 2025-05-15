@@ -1,19 +1,35 @@
-public class Chaine {
-    public static void main(String[] args) {
-        String bonjour = "salut la compagnie";
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <title>Manipulation de chaînes</title>
+</head>
+<body bgcolor="white">
+<h1>Exercice sur les chaînes de caractères</h1>
 
+<form action="#" method="post">
+    <p>Saisir une phrase : <input type="text" name="message">
+    <p><input type="submit" value="Afficher les transformations">
+</form>
+
+<%
+    String message = request.getParameter("message");
+
+    if (message != null && !message.trim().isEmpty()) {
         // Affichage en majuscules
-        System.out.println("En majuscules : " + bonjour.toUpperCase());
+        String majuscules = message.toUpperCase();
 
-        // Affichage avec la première lettre en majuscule
-        System.out.println("Première lettre en majuscule : " + capitalizeFirstLetter(bonjour));
-    }
+        // Mise en majuscule de la première lettre uniquement
+        String premiereMaj = message.substring(0, 1).toUpperCase() + message.substring(1);
 
-    // Méthode pour mettre uniquement la première lettre en majuscule
-    public static String capitalizeFirstLetter(String str) {
-        if (str == null || str.isEmpty()) {
-            return str;
-        }
-        return str.substring(0, 1).toUpperCase() + str.substring(1);
+%>
+    <h2>Résultats :</h2>
+    <p><strong>Original :</strong> <%= message %></p>
+    <p><strong>Majuscules :</strong> <%= majuscules %></p>
+    <p><strong>Première lettre en majuscule :</strong> <%= premiereMaj %></p>
+<%
     }
-}
+%>
+
+<p><a href="index.html">Retour au sommaire</a></p>
+</body>
+</html>
